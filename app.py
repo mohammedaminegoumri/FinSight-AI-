@@ -237,7 +237,7 @@ def numeric_summary(df: pd.DataFrame) -> str:
 
 def call_claude(prompt: str, system: str) -> str:
     """Call Claude API and return the text response."""
-    client = anthropic.Anthropic()
+    client = anthropic.Anthropic(api_key=st.secrets["ANTHROPIC_API_KEY"])
     msg = client.messages.create(
         model="claude-sonnet-4-20250514",
         max_tokens=2000,
